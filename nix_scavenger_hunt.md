@@ -12,39 +12,154 @@ and then clone it to your development environment.
 
 ## The Challenges
 
-### Navigating the Filesystem
+  ### Navigating the Filesystem
 
-* Get an idea of where you are in the operating system. Use the `pwd` command to find your "path to working directory"--your current location in the filesystem of your devbox. *Paste the output of the `pwd` command here:*
-* Discover more about this filesystem. Use `ls` (the "list" command)to see what is in this directory. *What directories and files do you see when you run `ls`?*
-* You can use *options* to modify how a command runs. Try using `ls -alh` to see the contents of your current directory. *How are the results different when you use the `-alh` options?*
-* The `man` ("manual") command tells you more about how any given command works. (*WARNING:* CodeAnywhere does not support the man command. You can click the following link to complete this task: http://linux.die.net/man/). Run `man` to see instructions about how to use `man`. Then use `man` to learn what the `a`, `l`, and `h` options mean when used with the `ls` command. *Write down what those options do?*
-* Commands can also take *arguments*, which are usually the names of files or locations that you want the command to work with. Try running `ls /` to see what files are in the *root* directory of the filesystem. *What files and directories do you see listed?*
-* A Unix filesystem has a few special shortcuts to refer to specific locations. `/` indicates the *root* of the filesystem, meaning the top-most directory in the filesystem hierarchy. Use the `cd` ("change directory") command to move to the root directory. (Hint: Use `man` to look up the `cd` command if you have any issues) *Then run `pwd` and paste the output here:*
-* Another special shortcut in Unix is the `~` location. This indicates the *user root* directory, meaning the top-most directory in the hierarchy that comes below your user account. Use `cd` to move to `~`. *Run `pwd` and paste the response here:*
+* Get an idea of where you are in the operating system. Use the `pwd` command to find your "path to working directory"--your current location in the filesystem of your devbox. 
+/home/cabox/workspace 
+* Discover more about this filesystem. Use `ls` (the "list" command)to see what is in this directory. 
+*What directories and files do you see when you run `ls`?*
+LICENSE    challenge_files        nix_scavenger_hunt_stretch.md             
+README.md  nix_scavenger_hunt.md  super_scavengers.md
+
+* You can use *options* to modify how a command runs. Try using `ls -alh` to see the contents of your current directory. 
+*How are the results different when you use the `-alh` options?*
+drwxrwxr-x  4 cabox cabox 4.0K Jun 25 19:09 .                               
+drwxr-xr-x 11 cabox cabox 4.0K Jun 25 19:09 ..                              
+drwxrwxr-x  8 cabox cabox 4.0K Jun 25 19:09 .git                            
+-rw-rw-r--  1 cabox cabox 1.1K Jun 25 19:09 LICENSE                         
+-rw-rw-r--  1 cabox cabox 2.7K Jun 25 19:09 README.md                       
+drwxrwxr-x  7 cabox cabox 4.0K Jun 25 19:09 challenge_files                 
+-rw-rw-r--  1 cabox cabox 5.5K Jun 25 19:09 nix_scavenger_hunt.md           
+-rw-rw-r--  1 cabox cabox  317 Jun 25 19:09 nix_scavenger_hunt_stretch.md   
+-rw-rw-r--  1 cabox cabox  191 Jun 25 19:09 super_scavengers.md 
+
+This command gives me all (a) the files in the long(l) format that are human readable (h)
+
+* The `man` ("manual") command tells you more about how any given command works.
+(*WARNING:* CodeAnywhere does not support the man command. You can click the following link to complete this task: http://linux.die.net/man/). 
+Run `man` to see instructions about how to use `man`. Then use `man` to learn what the `a`, `l`, and `h` options mean when used with the `ls` command. 
+*Write down what those options do?* 
+I already googled it! (a) all (l) long (h) human readable files
+
+
+* Commands can also take *arguments*, which are usually the names of files or locations that you want the command to work with. 
+Try running `ls /` to see what files are in the *root* directory of the filesystem. 
+*What files and directories do you see listed?*
+bin   dev  fastboot  lib    media  opt   root  sbin  sys  usr               
+boot  etc  home      lib64  mnt    proc  run   srv   tmp  var 
+
+
+* A Unix filesystem has a few special shortcuts to refer to specific locations. 
+`/` indicates the *root* of the filesystem, meaning the top-most directory in the filesystem hierarchy. 
+Use the `cd` ("change directory") command to move to the root directory. (Hint: Use `man` to look up the `cd` command if you have any issues) 
+*Then run `pwd` and paste the output here:*
+
+/
+cd
+* Another special shortcut in Unix is the `~` location. 
+This indicates the *user root* directory, meaning the top-most directory in the hierarchy that comes below your user account. 
+Use `cd` to move to `~`. *Run `pwd` and paste the response here:*
+/home/cabox 
+
+
 * Change directory into the `challenge_files` directory. Use `ls` to find only the files with a `.demo` pattern. *How many files do you find?*
+2015_special_stuff.demo  cloaked-wookie.demo  scooter-double-mamba.demo  
+
 * Use the `cd` command to move "up" one directory. *Where are you in the filesystem now?*
+/home/cabox/workspace (back where I started)
+
+
 * Press the up arrow on your keyboard. *What just happened?*
+my last typed command appeared
+
 * Press the up arrow a few more times. *What do you see?*
+Allows me to scroll through my previous commands
+
 * Run the `history` command. *What do you see?*
+A listing of my precious commands
 
 ### Observing the System
 
 * Discover what account you are logged into using the `whoami` command. *What username are you currently using?*
+cabox
+
 * Discover who else is on your system with the `who` command. *Are any other users using your system? If so, list them here:*
+no other users are listed
+
 * How long has your system been running? Use `uptime` to see, and *paste the result here:*
+ 18:38:35 up 35 min,  1 user,  load average: 0.00, 0.00, 0.00
+ 
 * Run `ps aux` and review the results. (Hint: Use `man` to learn more about the `ps` command and options.) *How do you interpret what you see here?*
+USER = user owning the process
+PID = process ID of the process
+%CPU = It is the CPU time used divided by the time the process has been running.
+%MEM = ratio of the process’s resident set size to the physical memory on the machine
+VSZ = virtual memory usage of entire process (in KiB)
+RSS = resident set size, the non-swapped physical memory that a task has used (in KiB)
+TTY = controlling tty (terminal)
+STAT = multi-character process state
+START = starting time or date of the process
+TIME = cumulative CPU time
+COMMAND = command with all its arguments
+
 * Run `top` and review the results. (Hint: You may need to use `ctrl-c` to get out of this app.) *How do you interpret what you see here?*
+This shows the realtime results of what my computer is doing, the number of processes, the amount of memory they are using, and how long it is taking.
+Here is a breakdown of the column titles:
+
+Process ID
+User
+Priority
+Nice level
+Virtual memory used by process
+Resident memory used by a process
+Shareable memory
+CPU used by process as a percentage
+Memory used by process as a percentage
+Time process has been running
+Command
 
 ### Finding and Viewing Files
+* Make sure you are in the `challenge_files` directory. Use the `*` wildcard to find all the files that have the word "credit" in the filename. 
+*How many files did you find?*
+./credit_cards2.txt                                                                                                                                                                                               
+./credit_cards.txt  
 
-* Make sure you are in the `challenge_files` directory. Use the `*` wildcard to find all the files that have the word "credit" in the filename. *How many files did you find?*
-* Use the `more` command to view one of the `credit_cards` files you just discovered. (Hint: Type `q` to quit viewing the file. Press the `spacebar` to page down. Use your keyboard arrows to move up/down.) *What is the date in the file you have viewed?*
-* Use the `find` command to search for files more effectively. Search the sub-directories under `challenge_files` to find the location of the file named `modi_laboriosam.txt`. *Where is that file located?*
-* Use the `grep` command to search for text within a file. Use `grep` on all the `.user` files in `challenge_files` to find which files contain "WA" (the abbreviation for Washington state). *How many files did you find?*
-* Use the `-r` option of `grep` to *recursively* find the text "Waldo" hidden in a file somewhere under the `challenge_files` directory. *Paste the result showing the file and line where the word "Waldo" shows up.*
+* Use the `more` command to view one of the `credit_cards` files you just discovered. 
+(Hint: Type `q` to quit viewing the file. Press the `spacebar` to page down. Use your keyboard arrows to move up/down.) 
+*What is the date in the file you have viewed?*
+1/15/2015 
 
+* Use the `find` command to search for files more effectively. Search the sub-directories under `challenge_files` 
+to find the location of the file named `modi_laboriosam.txt`. *Where is that file located?*
+./tmp/modi_laboriosam.txt 
+
+* Use the `grep` command to search for text within a file. Use `grep` on all the `.user` files in `challenge_files` 
+to find which files contain "WA" (the abbreviation for Washington state). *How many files did you find?*
+Britt-Erdman.user:O'Harachester, WA 37261                                                                                                                                                                         
+Lissie-Strosin.user:Jewessfurt, WA 00816-7241 
+
+
+* Use the `-r` option of `grep` to *recursively* find the text "Waldo" hidden in a file somewhere under the `challenge_files` directory. 
+*Paste the result showing the file and line where the word "Waldo" shows up.*
+
+serial-numbers/eaque_molestiae.txt:Ut est maiores quia autem. Nisi modi Waldo sed corporis sit explicabo ut est. Et est placeat ea sunt sunt consectetur sunt incidunt. Explicabo vel esse blanditiis dolorem culp
+a non quia.  
 ### Pipes and Connecting Commands
 
-* Sometimes it's useful to output the results of a command to a text file for further analysis, reference, or processing. Try running `ls > files.txt`. Notice that the file `files.txt` was created. View that file using `more`. *What do you see in the `files.txt` file?*
-* Notice that if you run `ls -alh` in the `challenge_files` directory, the files scroll by very quickly. Sometimes it would be better to get the results in a paginated format. Try running `ls -alh | more`. *Describe what you see when you run `ls -alh | more`.*
-* Earlier, when you viewed the list of active processes on your devbox using `ps aux`, the list was probably really long. You can make this list more manageable by using the pipe (`|`) to filter the results of `ps` using `grep`. Run `ps aux | grep <your_username>` to see what processes are running for your specific user. *Paste the list of processes that reference your username here:*
+* Sometimes it's useful to output the results of a command to a text file for further analysis, reference, or processing. 
+Try running `ls > files.txt`. Notice that the file `files.txt` was created. View that file using `more`. 
+*What do you see in the `files.txt` file?*
+a list of the files in the directory as a txt file
+
+
+* Notice that if you run `ls -alh` in the `challenge_files` directory, the files scroll by very quickly. 
+Sometimes it would be better to get the results in a paginated format. Try running `ls -alh | more`. 
+*Describe what you see when you run `ls -alh | more`.*
+I see a list of all the files in the long format that are human readable in the challenge_files directory.
+
+
+* Earlier, when you viewed the list of active processes on your devbox using `ps aux`, the list was probably really long. 
+You can make this list more manageable by using the pipe (`|`) to filter the results of `ps` using `grep`. Run `ps aux | grep <your_username>` 
+to see what processes are running for your specific user. *Paste the list of processes that reference your username here:*
+cabox      751  0.0  0.2   8816   764 pts/0    S+   18:01   0:00 grep --color=auto olsonem 
+
